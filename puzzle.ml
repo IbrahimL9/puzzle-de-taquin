@@ -1,8 +1,5 @@
 
-(* exercice 1 *)
 
-(* 1 *)
-(* a *)
 (* fonction qui retourne la position de la valeur x dans une grille.*)
 let rec position grille x= match grille with 
                       [] -> failwith "Valeur non trouvé."
@@ -11,7 +8,7 @@ let rec position grille x= match grille with
 
 (* position [1;4;2;3;0;5;6;7;8] 0;; *)
 
- (* b *)
+
  (* retourne la valeur de la position p dans une grille*)
 let rec valeur grille p= match grille with
                         [] -> failwith "Positon introuvable."
@@ -20,8 +17,7 @@ let rec valeur grille p= match grille with
                                   
 (* valeur [1;4;2;3;0;5;6;7;8] 4;; *)
                                   
-                                  
- (* c *)
+
  (* Echange deux valeurs v1 et v2 dans une grille et la retourne *)
 let rec echange grille v1 v2 = match grille with
                               [] -> []
@@ -32,7 +28,7 @@ let rec echange grille v1 v2 = match grille with
 (* echange [0;1;2;3;4;5;6;7;8] 0 4;; *)
                                         
                                         
-(* 2 *)            
+         
 type direction = Droite | Gauche | Bas | Haut;;               
 
 
@@ -69,9 +65,6 @@ let deplacer (grille,y) direction = let p=(position grille 0)
 (* deplacer ([0;1;2;3;4;5;6;7;8],3) Gauche;; *)
         
                              
-(* exercice 2 *)                            
-                            
-(* 3 *)
 (* Mélange une grille (x,y) pour un nombre d'itérations et retourne la grille *)
 let rec melange (x,y) iterations =  if iterations > 0 then 
                                     (* on genere un random pour determiner une direction *)
@@ -94,7 +87,7 @@ let rec melange (x,y) iterations =  if iterations > 0 then
  (* melange ([0;1;2;3;4;5;6;7;8],3) 100;; *)                            
                              
                                                           
-(* 4 *)
+
 (* Applique un chemin sur une grille et la retourne *)
 let testerChemin (x,y) chemin =  List.fold_right (fun c acc -> deplacer (acc,y)  c) chemin x;;
  
@@ -102,9 +95,6 @@ let testerChemin (x,y) chemin =  List.fold_right (fun c acc -> deplacer (acc,y) 
 (* testerChemin ([0;1;2;3;4;5;6;7;8],3) [Gauche;Bas;Droite];; *) 
  
  
-(* exercice 3 *)
- 
-(* 5 *)
 (* renvoie le chemin obtenu a l'issu d'un parcours naif vers grille_finale apartir de la liste prochaines_grilles *)                         
 let rec parcours1 grille_finale taille prochaines_grilles=
                                     match prochaines_grilles with 
@@ -128,8 +118,7 @@ let rec parcours1 grille_finale taille prochaines_grilles=
                                             
 
  
- 
-(* 6 *)
+
 (* renvoie le chemin obtenu a l'issu d'un parcours naif vers grille_finale apartir de la liste prochaines_grilles et en stockant les grilles deja parcouru afin d'avoir une version plus optimisé de parcours1 *) 
 let rec parcours2 grille_finale taille prochaines_grilles grilles_parcourues= 
                                     match prochaines_grilles with 
@@ -181,8 +170,6 @@ let distance grille_initiale grille_finale taille =
 (*  distance [4; 3; 2; 1; 0; 5; 6; 7; 8] [0; 1; 2; 3; 4; 5; 6; 7; 8] 3;; *)                                    
                                     
                             
-(* 8 *)
-
 (* Fonction qui insert un tuple dans une liste trier dans un ordre croissant en fonction de la distance et renvoie la liste *)
 let rec inserer_trier (grille,chemin,distance) li =
                                     match li with
